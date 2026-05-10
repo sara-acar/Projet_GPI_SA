@@ -1,12 +1,10 @@
 # Projet_GPI_SA
 ---
 **Master training project**
- ici c'est le projet de gpi 
- - first item 
-
+c'est le projet de gpi 
+ 
  1. First item 
 
- 'code' 
 
 
 
