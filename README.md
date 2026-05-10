@@ -1,7 +1,6 @@
 # Projet_GPI_SA
 ---
-**Master training project**
-c'est le projet de gpi 
+**Master training project** 
  
  1. First item 
 
