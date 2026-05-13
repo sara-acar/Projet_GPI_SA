@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-import RNA.utils as utils
+import utils
 
 if len(sys.argv) != 2:
     print("Incorrect number of arguments")
