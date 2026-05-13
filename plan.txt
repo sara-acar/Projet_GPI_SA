@@ -1,0 +1,11 @@
+PDB - dot-bracket 2D
+
+- arguments de ligne de commande
+- lecture de PDB
+- encoder l'information structurale en POO
+-produire le dot-bracket
+-petit script
+
+script executable :(il importe les mmodules 'modele' et 'utilitaire')  
+- modele (description de l'ARN en classes/objets/methodes etc..)
+- utilitaire (lecture des PDB, creation de DBN) (il emporte 'model')
