@@ -13,3 +13,4 @@ pdb_name = sys.argv[1]
 
 RNA = utils.parsePDB(pdb_name)
 utils.generate_dot_bracket(RNA) 
+
