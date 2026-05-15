@@ -28,4 +28,5 @@ for prot in proteome:
 print ('after')
 for prot in proteome: 
     print(prot.name + 'is folded' ,prot.folded)
+    
 
