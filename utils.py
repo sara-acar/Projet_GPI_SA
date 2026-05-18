@@ -1,10 +1,15 @@
+class TertiaryCoordinates:
+    def __init__(self, x, y, z):
+        self.x = float(x)
+        self.y = float(y)
+        self.z = float(z)
 class atom :
     def __init__(self, atom_name, res_name, position, chain_id, x, y, z):
         self.atom_name = atom_name
         self.res_name = res_name
         self.position = position
         self.chain_id = chain_id
-        self.coord = (float(x), float(y), float(z))
+        self.coord = TertiaryCoordinates(x, y, z)
 
 class nucleotide :
     def __init__(self, res_name, position, chain_id):
@@ -12,7 +17,17 @@ class nucleotide :
         self.position = position
         self.chain_id = chain_id
         self.atoms = []
-
+class HydrogenBond :
+    def __init__(self, atom1, atom2, distance):
+        self.atom1 = atom1
+        self.atom2 = atom2
+        self.distance = distance
+class BasePair :
+    def __init__(self, nucleotide1, nucleotide2, h_bonds):
+        self.nucleotide1 = nucleotide1
+        self.nucleotide2 = nucleotide2
+        self.h_bonds = h_bonds
+        
 class RNA :
     def __init__(self, nucleotide):
         self.nucleotide = nucleotide
