@@ -1,3 +1,5 @@
+import math
+
 class TertiaryCoordinates:
     def __init__(self, x, y, z):
         self.x = float(x)
@@ -27,7 +29,7 @@ class BasePair :
         self.nucleotide1 = nucleotide1
         self.nucleotide2 = nucleotide2
         self.h_bonds = h_bonds
-        
+
 class RNA :
     def __init__(self, nucleotide):
         self.nucleotide = nucleotide
@@ -37,6 +39,13 @@ class RNA :
         for n in self.nucleotide:
             sequence += n.res_name
         return sequence
+
+def calculer_distance(coord1, coord2):
+    partie_x = (coord2.x - coord1.x) ** 2
+    partie_y = (coord2.y - coord1.y) ** 2
+    partie_z = (coord2.z - coord1.z) ** 2
+    distance = math.sqrt(partie_x + partie_y + partie_z)
+    return distance
 
 def parsePDB(file_name):
     dico_nucleotide = {}
@@ -64,3 +73,20 @@ def parsePDB(file_name):
 def generate_dot_bracket(model):
     print("dot-bracket notation of the "+ str(model))
     print(" LA SÉQUENCE :", model.get_sequence()) 
+
+    list_nucleotide = model.nucleotide
+    taille = len(list_nucleotide) 
+
+    structure = ["."] * taille
+    for i in range(taille):
+        for j in range(i+1, taille):
+            nucleotide1 = list_nucleotide[i]
+            nucleotide2 = list_nucleotide[j]
+            for atom1 in nucleotide1.atoms:
+                for atom2 in nucleotide2.atoms:
+                    distance = calculer_distance(atom1.coord, atom2.coord)
+                    if distance < 3:
+                        structure[i] = "("
+                        structure[j] = ")"
+    structure_str = "".join(structure)
+    print(" LA STRUCTURE :", structure_str)
